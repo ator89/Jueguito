@@ -5,17 +5,20 @@
  */
 package jueguito;
 
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Angel
  */
 public class Main extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Main
-     */
     public Main() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -27,21 +30,313 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jd_login = new javax.swing.JDialog();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        tf_login_user = new javax.swing.JTextField();
+        tf_login_pwd = new javax.swing.JPasswordField();
+        bt_login = new javax.swing.JButton();
+        jd_register = new javax.swing.JDialog();
+        jPanel1 = new javax.swing.JPanel();
+        tf_registrar_user = new javax.swing.JTextField();
+        tf_registrar_pwd = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        bt_signup = new javax.swing.JButton();
+        jd_users = new javax.swing.JDialog();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jl_listaUsuarios = new javax.swing.JList<>();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jmi_login = new javax.swing.JMenuItem();
+        jmi_register = new javax.swing.JMenuItem();
+        jmi_logout = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jmi_exit = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+
+        jd_login.setTitle("Sign In");
+
+        jPanel2.setToolTipText("");
+
+        jLabel3.setText("Username:");
+
+        jLabel4.setText("Password:");
+
+        bt_login.setText("Sign In");
+        bt_login.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_loginMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(bt_login)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tf_login_user)
+                            .addComponent(tf_login_pwd, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE))))
+                .addContainerGap(63, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(tf_login_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel4)
+                    .addComponent(tf_login_pwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(bt_login)
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jd_loginLayout = new javax.swing.GroupLayout(jd_login.getContentPane());
+        jd_login.getContentPane().setLayout(jd_loginLayout);
+        jd_loginLayout.setHorizontalGroup(
+            jd_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        jd_loginLayout.setVerticalGroup(
+            jd_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_loginLayout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jd_register.setTitle("Register");
+
+        jLabel1.setText("Usuario:");
+
+        jLabel2.setText("Password:");
+
+        bt_signup.setText("Registrar");
+        bt_signup.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_signupMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(bt_signup)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(tf_registrar_user, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tf_registrar_pwd, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(51, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(tf_registrar_user)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_registrar_pwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
+                .addComponent(bt_signup)
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jd_registerLayout = new javax.swing.GroupLayout(jd_register.getContentPane());
+        jd_register.getContentPane().setLayout(jd_registerLayout);
+        jd_registerLayout.setHorizontalGroup(
+            jd_registerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        jd_registerLayout.setVerticalGroup(
+            jd_registerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_registerLayout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jd_usersLayout = new javax.swing.GroupLayout(jd_users.getContentPane());
+        jd_users.getContentPane().setLayout(jd_usersLayout);
+        jd_usersLayout.setHorizontalGroup(
+            jd_usersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jd_usersLayout.setVerticalGroup(
+            jd_usersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jl_listaUsuarios.setModel(new DefaultListModel());
+        jScrollPane1.setViewportView(jl_listaUsuarios);
+
+        jMenu1.setText("File");
+
+        jmi_login.setText("Login");
+        jmi_login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_loginActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jmi_login);
+
+        jmi_register.setText("Register");
+        jmi_register.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_registerActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jmi_register);
+
+        jmi_logout.setText("Log Out");
+        jMenu1.add(jmi_logout);
+        jMenu1.add(jSeparator1);
+
+        jmi_exit.setText("Exit");
+        jMenu1.add(jmi_exit);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+
+        jMenuItem1.setText("Users");
+        jMenu2.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 641, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(277, 277, 277)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(243, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 426, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(192, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jmi_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_loginActionPerformed
+        jd_login.pack();
+        jd_login.setModal(true);
+        jd_login.setLocationRelativeTo(this);
+        jd_login.setVisible(true);
+    }//GEN-LAST:event_jmi_loginActionPerformed
+
+    private void bt_signupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_signupMouseClicked
+        
+
+        String user = tf_registrar_user.getText();
+        String password = tf_registrar_pwd.getText();
+
+        boolean valid = true;
+        try {
+            
+            for (User u : lista) {
+                if(user.equals(u.getUser())){
+                    valid = false;
+                }
+            }
+            
+            if(valid){
+                
+                lista.add(new User(user, password));
+                DefaultListModel modeloLista = (DefaultListModel)jl_listaUsuarios.getModel();
+                modeloLista.addElement(new User(user, password));
+                jl_listaUsuarios.setModel(modeloLista);
+                
+                JOptionPane.showMessageDialog(jd_register, "Agregado con exito");
+                
+                tf_registrar_user.setText("");
+                tf_registrar_pwd.setText("");
+                
+            }else{
+                JOptionPane.showMessageDialog(jd_register, "Ya existe un usuario con ese nombre");
+            }
+
+        } catch (Exception e) {
+
+        }
+    }//GEN-LAST:event_bt_signupMouseClicked
+
+    private void bt_loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_loginMouseClicked
+        String user = tf_login_user.getText();
+        String password = tf_login_pwd.getText();
+
+        boolean valido = false;
+        try {
+            
+            for (int i = 0; i < lista.size(); i++) {
+                if(user.equals(lista.get(i).getUser()) && password.equals(lista.get(i).getPassword())){
+                    valido = true;
+                }
+                
+            }
+            /*
+            for (User u : lista) {
+                System.out.println(u.getPassword());
+                if(user.equals(u.getUser()) && password.equals(u.getPassword())){
+                    valido = true;
+                }
+            }
+            */
+            if(valido){
+                
+                JOptionPane.showMessageDialog(jd_login, "Welcome");
+                
+                tf_login_user.setText("");
+                tf_login_pwd.setText("");
+                
+            }else{
+                JOptionPane.showMessageDialog(jd_login, "Usuario/Contraseña incorrecta");
+            }
+
+        } catch (Exception e) {
+
+        }
+    }//GEN-LAST:event_bt_loginMouseClicked
+
+    private void jmi_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_registerActionPerformed
+        jd_register.pack();
+        jd_register.setModal(true);
+        jd_register.setLocationRelativeTo(this);
+        jd_register.setVisible(true);
+    }//GEN-LAST:event_jmi_registerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +374,32 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bt_login;
+    private javax.swing.JButton bt_signup;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JDialog jd_login;
+    private javax.swing.JDialog jd_register;
+    private javax.swing.JDialog jd_users;
+    private javax.swing.JList<String> jl_listaUsuarios;
+    private javax.swing.JMenuItem jmi_exit;
+    private javax.swing.JMenuItem jmi_login;
+    private javax.swing.JMenuItem jmi_logout;
+    private javax.swing.JMenuItem jmi_register;
+    private javax.swing.JPasswordField tf_login_pwd;
+    private javax.swing.JTextField tf_login_user;
+    private javax.swing.JPasswordField tf_registrar_pwd;
+    private javax.swing.JTextField tf_registrar_user;
     // End of variables declaration//GEN-END:variables
+    ArrayList<User> lista = new ArrayList();
 }
