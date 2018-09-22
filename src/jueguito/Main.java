@@ -5,6 +5,7 @@
  */
 package jueguito;
 
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import javax.swing.DefaultListModel;
@@ -19,6 +20,7 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -45,6 +47,12 @@ public class Main extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         bt_signup = new javax.swing.JButton();
         jd_users = new javax.swing.JDialog();
+        jd_2d = new javax.swing.JDialog();
+        jLabel5 = new javax.swing.JLabel();
+        lb_m8 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jToggleButton1 = new javax.swing.JToggleButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jl_listaUsuarios = new javax.swing.JList<>();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -56,6 +64,8 @@ public class Main extends javax.swing.JFrame {
         jmi_exit = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         jd_login.setTitle("Sign In");
 
@@ -190,6 +200,35 @@ public class Main extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
+        jd_2d.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pm.png"))); // NOI18N
+        jd_2d.getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
+
+        lb_m8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/m8bit.png"))); // NOI18N
+        jd_2d.getContentPane().add(lb_m8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 251, 208));
+
+        jLabel7.setFont(new java.awt.Font("Gill Sans Ultra Bold Condensed", 1, 36)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel7.setText("Wilkommen");
+        jd_2d.getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 23, -1, -1));
+
+        jButton1.setText("< )))");
+        jd_2d.getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 60, -1, -1));
+
+        jToggleButton1.setText("Play");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+        jToggleButton1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jToggleButton1KeyPressed(evt);
+            }
+        });
+        jd_2d.getContentPane().add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 120, -1, -1));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jl_listaUsuarios.setModel(new DefaultListModel());
@@ -227,6 +266,19 @@ public class Main extends javax.swing.JFrame {
         jMenuItem1.setText("Users");
         jMenu2.add(jMenuItem1);
 
+        jMenu3.setText("Activities");
+
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.ALT_MASK));
+        jMenuItem2.setText("2D");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem2);
+
+        jMenu2.add(jMenu3);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -259,33 +311,32 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jmi_loginActionPerformed
 
     private void bt_signupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_signupMouseClicked
-        
 
         String user = tf_registrar_user.getText();
         String password = tf_registrar_pwd.getText();
 
         boolean valid = true;
         try {
-            
+
             for (User u : lista) {
-                if(user.equals(u.getUser())){
+                if (user.equals(u.getUser())) {
                     valid = false;
                 }
             }
-            
-            if(valid){
-                
+
+            if (valid) {
+
                 lista.add(new User(user, password));
-                DefaultListModel modeloLista = (DefaultListModel)jl_listaUsuarios.getModel();
+                DefaultListModel modeloLista = (DefaultListModel) jl_listaUsuarios.getModel();
                 modeloLista.addElement(new User(user, password));
                 jl_listaUsuarios.setModel(modeloLista);
-                
+
                 JOptionPane.showMessageDialog(jd_register, "Agregado con exito");
-                
+
                 tf_registrar_user.setText("");
                 tf_registrar_pwd.setText("");
-                
-            }else{
+
+            } else {
                 JOptionPane.showMessageDialog(jd_register, "Ya existe un usuario con ese nombre");
             }
 
@@ -300,12 +351,12 @@ public class Main extends javax.swing.JFrame {
 
         boolean valido = false;
         try {
-            
+
             for (int i = 0; i < lista.size(); i++) {
-                if(user.equals(lista.get(i).getUser()) && password.equals(lista.get(i).getPassword())){
+                if (user.equals(lista.get(i).getUser()) && password.equals(lista.get(i).getPassword())) {
                     valido = true;
                 }
-                
+
             }
             /*
             for (User u : lista) {
@@ -314,15 +365,15 @@ public class Main extends javax.swing.JFrame {
                     valido = true;
                 }
             }
-            */
-            if(valido){
-                
+             */
+            if (valido) {
+
                 JOptionPane.showMessageDialog(jd_login, "Welcome");
-                
+
                 tf_login_user.setText("");
                 tf_login_pwd.setText("");
-                
-            }else{
+
+            } else {
                 JOptionPane.showMessageDialog(jd_login, "Usuario/Contraseña incorrecta");
             }
 
@@ -338,9 +389,23 @@ public class Main extends javax.swing.JFrame {
         jd_register.setVisible(true);
     }//GEN-LAST:event_jmi_registerActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        jd_2d.pack();
+        jd_2d.setModal(true);
+        jd_2d.setLocationRelativeTo(this);
+        jd_2d.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jToggleButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jToggleButton1KeyPressed
+
+        moveImg(evt);
+
+    }//GEN-LAST:event_jToggleButton1KeyPressed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -373,21 +438,65 @@ public class Main extends javax.swing.JFrame {
         });
     }
 
+    private void moveImg(java.awt.event.KeyEvent evt) {
+
+        switch (evt.getKeyCode()) {
+            case KeyEvent.VK_UP:
+                moveUp();
+                break;
+            case KeyEvent.VK_DOWN:
+                moveDown();
+                break;
+            case KeyEvent.VK_LEFT:
+                moveLeft();
+                break;
+            case KeyEvent.VK_RIGHT:
+                moveRight();
+                break;
+            default:
+                System.out.println("Inválida");
+                break;
+
+        }
+    }
+
+    private void moveUp() {
+        lb_m8.setLocation(lb_m8.getX(), lb_m8.getY() - 10);
+    }
+
+    private void moveDown() {
+        lb_m8.setLocation(lb_m8.getX(), lb_m8.getY() + 10);
+    }
+
+    private void moveLeft() {
+        lb_m8.setLocation(lb_m8.getX() - 10, lb_m8.getY());
+    }
+
+    private void moveRight() {
+        lb_m8.setLocation(lb_m8.getX() + 10, lb_m8.getY());
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt_login;
     private javax.swing.JButton bt_signup;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JDialog jd_2d;
     private javax.swing.JDialog jd_login;
     private javax.swing.JDialog jd_register;
     private javax.swing.JDialog jd_users;
@@ -396,6 +505,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmi_login;
     private javax.swing.JMenuItem jmi_logout;
     private javax.swing.JMenuItem jmi_register;
+    private javax.swing.JLabel lb_m8;
     private javax.swing.JPasswordField tf_login_pwd;
     private javax.swing.JTextField tf_login_user;
     private javax.swing.JPasswordField tf_registrar_pwd;
