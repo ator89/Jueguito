@@ -15,6 +15,8 @@ import javax.swing.JOptionPane;
 
 public class Main extends javax.swing.JFrame {
 
+    
+    /*
     private class HiloTiempo extends Thread{
         
         @Override
@@ -25,18 +27,22 @@ public class Main extends javax.swing.JFrame {
                 cont++;
             }
         }
-    }
+    }*/
     
     HiloMusica hm;
     Thread hilo;
-    HiloTiempo hto;
+    //HiloTiempo hto;
     
     public Main() {
         initComponents();
         this.setLocationRelativeTo(null);
         
+        
         adminTiempo th = new adminTiempo(lb_tiempo);
         th.start();
+        
+        adminTiempo tdesktop = new adminTiempo(lb_time);
+        tdesktop.start();
         
         hm=new HiloMusica();
         hilo = new Thread();
@@ -62,6 +68,16 @@ public class Main extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         bt_signup = new javax.swing.JButton();
         jd_users = new javax.swing.JDialog();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jl_listaUsuarios = new javax.swing.JList<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTree1 = new javax.swing.JTree();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
         jd_2d = new javax.swing.JDialog();
         jLabel5 = new javax.swing.JLabel();
         lb_m8 = new javax.swing.JLabel();
@@ -69,8 +85,7 @@ public class Main extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jToggleButton1 = new javax.swing.JToggleButton();
         lb_tiempo = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jl_listaUsuarios = new javax.swing.JList<>();
+        lb_time = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jmi_login = new javax.swing.JMenuItem();
@@ -205,15 +220,91 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jd_users.setTitle("Users");
+
+        jl_listaUsuarios.setModel(new DefaultListModel());
+        jScrollPane1.setViewportView(jl_listaUsuarios);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
+
+        jScrollPane3.setViewportView(jTree1);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(90, 90, 90)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(75, 75, 75)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(127, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(94, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("tab1", jPanel3);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1156, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 506, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("tab2", jPanel4);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1156, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 506, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("tab3", jPanel5);
+
         javax.swing.GroupLayout jd_usersLayout = new javax.swing.GroupLayout(jd_users.getContentPane());
         jd_users.getContentPane().setLayout(jd_usersLayout);
         jd_usersLayout.setHorizontalGroup(
             jd_usersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
         jd_usersLayout.setVerticalGroup(
             jd_usersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
 
         jd_2d.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -255,8 +346,7 @@ public class Main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jl_listaUsuarios.setModel(new DefaultListModel());
-        jScrollPane1.setViewportView(jl_listaUsuarios);
+        lb_time.setText("Hora");
 
         jMenu1.setText("File");
 
@@ -288,6 +378,11 @@ public class Main extends javax.swing.JFrame {
         jMenu2.setText("Edit");
 
         jMenuItem1.setText("Users");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem1);
 
         jMenu3.setText("Activities");
@@ -311,17 +406,17 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(277, 277, 277)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(243, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(582, Short.MAX_VALUE)
+                .addComponent(lb_time)
+                .addGap(36, 36, 36))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(192, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(lb_time)
+                .addContainerGap(380, Short.MAX_VALUE))
         );
 
         pack();
@@ -434,6 +529,13 @@ public class Main extends javax.swing.JFrame {
         hilo.start();
     }//GEN-LAST:event_jButton1MouseClicked
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        jd_users.pack();
+        jd_users.setModal(true);
+        jd_users.setLocationRelativeTo(this);
+        jd_users.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -524,9 +626,17 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JTree jTree1;
     private javax.swing.JDialog jd_2d;
     private javax.swing.JDialog jd_login;
     private javax.swing.JDialog jd_register;
@@ -538,6 +648,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmi_register;
     private javax.swing.JLabel lb_m8;
     private javax.swing.JLabel lb_tiempo;
+    private javax.swing.JLabel lb_time;
     private javax.swing.JPasswordField tf_login_pwd;
     private javax.swing.JTextField tf_login_user;
     private javax.swing.JPasswordField tf_registrar_pwd;
